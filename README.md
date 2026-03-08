@@ -1,16 +1,11 @@
-# Quick Vercel Env Backup for Windows Devs
+# Vercel Env Backup Tool (Windows-Friendly)
 
-Tired of manually pulling env vars in Vercel CLI? This simple script automates it:
-- Downloads your dev env vars to a temp file.
-- Cleans up automatically.
-- Works with Vercel CLI v33.6.0+ (local network backup).
+Simple script to pull and backup Vercel env vars on Windows. 
 
-## How to Use
-1. Download `vercel-backup.bat` from this repo.
-2. Open Command Prompt in your Vercel-linked project folder (e.g., `cd C:\my-app`).
-3. Run: `vercel-backup.bat` (or double-click it).
-4. Done! It says "Backup complete."
+## Setup
+1. Install Vercel CLI: `npm i -g vercel@latest`
+2. Link project: `vercel link --yes`
+3. Run: Double-click `vercel-backup.bat` in your project dir.
 
-**Note**: Requires Vercel CLI installed (`npm i -g vercel`). Test on a dummy project. (Assumes local network for backup.)
+**Tested on Vercel CLI v33.6.0**. For dev backups only—use fake secrets!
 
-Happy deploying! 🚀
