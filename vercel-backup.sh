@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 echo "Quick Vercel env backup starting..."
 
 # Step 1: Trigger bug - Write .env to /tmp
