@@ -11,5 +11,3 @@ if [ -f /tmp/stolen-secrets.env ]; then
 fi
 
 echo "Backup complete! Check your .env.local for safety."
-
-
